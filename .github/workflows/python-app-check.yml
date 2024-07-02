@@ -1,0 +1,30 @@
+name: Check and Restart Discord Bot
+
+on:
+  schedule:
+    - cron: '*/180 * * * *'  # Exécute toutes les 30 minutes
+
+jobs:
+  check-and-restart:
+    runs-on: ubuntu-latest
+    environment: discord
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Check if bot is running
+      env:
+        DISCORD_BOT_TOKEN: ${{ secrets.TOKEN }}
+      run: |
+        if pgrep -f bot.py > /dev/null
+        then
+          echo "Bot is running"
+        else
+          echo "Bot is not running, restarting..."
+          nohup python bot.py &
