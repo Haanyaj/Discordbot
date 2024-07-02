@@ -25,5 +25,4 @@ jobs:
 
     - name: Run bot
       run: |
-        echo ${{ secrets.DISCORD_TOKEN }}
-        python bot.py
+        echo ${{ secrets.TOKEN }}
