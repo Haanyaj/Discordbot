@@ -26,3 +26,4 @@ jobs:
         else
           echo "Bot is not running, restarting..."
           nohup python bot.py &
+        fi
