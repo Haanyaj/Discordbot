@@ -24,7 +24,7 @@ async def on_message(message):
         return
 
     if 'https://x.com' in message.content:
-        modified_content = message.content.replace('https://x.com', 'https://xvtwitter.com')
+        modified_content = message.content.replace('https://x.com', 'https://vxtwitter.com')
         await message.delete()
         response = f"Envoyé par: {message.author.mention}\nContenu: {modified_content}"
         await message.channel.send(response)
