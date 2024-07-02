@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+import os
 
 # Remplacez par votre token Discord
 TOKEN = os.getenv('DISCORD_TOKEN')
