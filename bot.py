@@ -1,14 +1,17 @@
+import os
 import discord
 from discord.ext import commands
-import os
 
-# Remplacez par votre token Discord
+# Charger les variables d'environnement
 TOKEN = os.getenv('DISCORD_BOT_TOKEN')
-print(TOKEN)
+if TOKEN is None:
+    raise ValueError("No DISCORD_BOT_TOKEN found in environment variables")
+
+print(f"Token loaded: {TOKEN[:5]}...")  # Affiche une partie du token pour vérifier qu'il est chargé
+
 intents = discord.Intents.all()
-print(intents)
+
 bot = commands.Bot(command_prefix='!', intents=intents)
-# Initialisez le client Discord
 client = discord.Client(intents=intents)
 
 @client.event
@@ -17,22 +20,13 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    # Évitez que le bot ne réponde à ses propres messages
     if message.author == client.user:
         return
 
-    # Cherche les URLs correspondant au modèle et les modifie
     if 'https://x.com' in message.content:
-        print(message.content)
-        modified_content = message.content.replace('https://x.com', 'https://vxtwitter.com')
-        
-        # Supprimer le message de l'utilisateur
+        modified_content = message.content.replace('https://x.com', 'https://xvtwitter.com')
         await message.delete()
-        
-        # Envoyer le message modifié
-        response = f"Envoyé par: {message.author.mention}\n{modified_content}"
+        response = f"Envoyé par: {message.author.mention}\nContenu: {modified_content}"
         await message.channel.send(response)
 
-
-# Lance le bot
 client.run(TOKEN)
