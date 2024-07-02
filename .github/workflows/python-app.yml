@@ -24,5 +24,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run bot
+      env:
+        DISCORD_BOT_TOKEN: ${{ vars.TOKEN }}  # Utilisez la variable d'environnement définie
       run: |
-        echo ${{ secrets.TOKEN }}
+        python bot.py
