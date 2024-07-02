@@ -4,7 +4,7 @@ import os
 
 # Remplacez par votre token Discord
 TOKEN = os.getenv('GITHUB_TOKEN')
-
+print(TOKEN)
 intents = discord.Intents.all()
 print(intents)
 bot = commands.Bot(command_prefix='!', intents=intents)
@@ -35,4 +35,4 @@ async def on_message(message):
 
 
 # Lance le bot
-client.run(TOKEN.DISCORD_TOKEN)
+client.run(TOKEN)
