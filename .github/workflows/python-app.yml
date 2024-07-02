@@ -25,6 +25,6 @@ jobs:
         pip install -r requirements.txt
     - name: Run bot
       env:
-        DISCORD_BOT_TOKEN: ${{ secrets.TOKEN }}
+        DISCORD_BOT_TOKEN: ${{ vars.TOKEN }}
       run: |
         nohup python bot.py &
