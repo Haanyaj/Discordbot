@@ -26,7 +26,7 @@ async def on_message(message):
     if 'https://x.com' in message.content:
         modified_content = message.content.replace('https://x.com', 'https://vxtwitter.com')
         await message.delete()
-        response = f"OUAIS WALID\nDe: {message.author.mention}\n{modified_content}"
+        response = f"De: {message.author.mention}\n{modified_content}"
         await message.channel.send(response)
 
 client.run(TOKEN)
