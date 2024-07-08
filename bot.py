@@ -28,13 +28,21 @@ async def on_message(message):
         await message.delete()
         response = f"De: {message.author.mention}\n{modified_content}"
         await message.channel.send(response)
+        
     if 'https://vm.tiktok.com' in message.content:
         modified_content = message.content.replace('https://vm.tiktok.com', 'https://vm.vxtiktok.com')
         await message.delete()
         response = f"De: {message.author.mention}\n{modified_content}"
         await message.channel.send(response)
+        
     if 'https://www.tiktok.com' in message.content:
         modified_content = message.content.replace('https://www.tiktok.com', 'https://vm.vxtiktok.com')
+        await message.delete()
+        response = f"De: {message.author.mention}\n{modified_content}"
+        await message.channel.send(response)
+        
+    if 'https://www.instagram.com' in message.content:
+        modified_content = message.content.replace('https://www.instagram.com', 'https://www.ddinstagram.com')
         await message.delete()
         response = f"De: {message.author.mention}\n{modified_content}"
         await message.channel.send(response)
