@@ -2,7 +2,7 @@ name: Rerun Bot Workflow
 
 on:
   schedule:
-    - cron: '0 */3 * * *'  # Exécute toutes les 5 heures
+    - cron: '0 */5 * * *'  # Exécute toutes les 5 heures
   workflow_dispatch:  # Permet de lancer manuellement le workflow
 
 jobs:
@@ -12,7 +12,7 @@ jobs:
       - name: Rerun Discord Bot Workflow
         uses: actions/github-script@v6
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{github.token}}
           script: |
             const workflow_id = 'main.yml';  # Nom de votre fichier de workflow principal
             const branch = 'main';  # La branche sur laquelle le workflow est exécuté
