@@ -33,5 +33,10 @@ async def on_message(message):
         await message.delete()
         response = f"De: {message.author.mention}\n{modified_content}"
         await message.channel.send(response)
+    if 'https://www.tiktok.com' in message.content:
+        modified_content = message.content.replace('https://www.tiktok.com', 'https://vm.vxtiktok.com')
+        await message.delete()
+        response = f"De: {message.author.mention}\n{modified_content}"
+        await message.channel.send(response)
 
 client.run(TOKEN)
